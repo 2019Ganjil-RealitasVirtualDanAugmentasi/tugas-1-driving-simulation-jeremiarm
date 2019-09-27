@@ -14,8 +14,29 @@ public class Move : MonoBehaviour {
     void Update () {
         if (Input.GetKey("up"))
         {
-            transform.Translate(Vector3.forward * -1 * movementSpeed * Time.deltaTime);
+            transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
         }
-            
+		if (Input.GetKey("down"))
+		{
+			transform.Translate(Vector3.back * movementSpeed * Time.deltaTime);
+		}
+		if (Input.GetKey("left"))
+		{
+			if (Input.GetKey("up")){
+				transform.Rotate(0,-1,0);
+			}
+			if (Input.GetKey("down")){
+				transform.Rotate(0,-1,0);
+			}
+		}
+		if (Input.GetKey("right"))
+		{
+			if (Input.GetKey("up")){
+				transform.Rotate(0,1,0);
+			}
+			if (Input.GetKey("down")){
+				transform.Rotate(0,1,0);
+			}
+		}
     }
 }
